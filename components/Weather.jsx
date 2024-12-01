@@ -16,6 +16,26 @@ const Weather = ({data}) => {
                 </div>
                 <p className="text-9xl">{data.main.temp.toFixed(0)}&#176;</p>
             </div>
+
+            {/* Botton */}
+<div className="bg-black/50 relative p-8 rounded-md">
+    <p className="text-2xl text-center pb-6">Weather in {data.name}</p>
+    <div className="flex justify-between text-center">
+        <div>
+            <p className="font-bold text-2l">{data.main.feels_like.toFixed(0)}&#176;</p>
+            <p className="text-xl">Feels like</p>
+        </div>
+        <div>
+            <p className="font-bold text-2l">{data.main.humidity.toFixed(0)}%</p>
+            <p className="text-xl">Humidity</p>
+        </div>
+        <div>
+            <p className="font-bold text-2l">{data.wind.speed.toFixed(0)}/MPH</p>
+            <p className="text-xl">Winds</p>
+        </div>
+    </div>
+</div>          
+
         </div>
     )
 }
