@@ -21,7 +21,7 @@ export default function Home() {
       return;
     }
     setLoading(true);
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${process.env.NEXT_PUBLIC_WEATHER_KEY}`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.NEXT_PUBLIC_WEATHER_KEY}`;
     axios.get(url).then((response) => {
       setWeather(response.data);
       // console.log(response.data);
@@ -41,7 +41,7 @@ export default function Home() {
         <div className='absolute top-0 left-0 right-0 bottom-0 bg-black/40 z[1]'/>
         {/* Background Image */}
         <Image 
-            src='https://images7.alphacoders.com/134/thumb-1920-1344443.png' 
+            src='https://images3.alphacoders.com/134/1349491.jpeg' 
             layout='fill'
             className='object-cover'
             alt='bg-netweather' // Adicione uma descrição apropriada aqui
