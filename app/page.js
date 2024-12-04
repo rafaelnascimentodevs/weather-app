@@ -64,7 +64,6 @@ export default function Home() {
       {/* Weather Info */}
       
       {weather.main && <Weather data={weather} />}
-
     </div>  
 
     )

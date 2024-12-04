@@ -1,5 +1,7 @@
 import Image from "next/image";
 import React from "react";
+import moment from 'moment';
+
 
 const Weather = ({data}) => {
     console.log(data);
@@ -17,8 +19,17 @@ const Weather = ({data}) => {
                 <p className="text-9xl">{data.main.temp.toFixed(0)}&#176;</p>
             </div>
 
+            {/* time */}
+            
+           <div>
+              </div>
+                <div className="text-center bg-black/50 relative p-5 rounded-md">
+                 <p className="text-2xl">{moment().hour()}:{moment().minutes()}:{moment().seconds()}</p>
+                 <p className="text-xl">{moment().format('MMMM Do YYYY')}</p>
+           </div>
+
             {/* Botton */}
-<div className="bg-black/50 relative p-8 rounded-md">
+<div className="bg-black/50 relative p-7 rounded-md">
     <p className="text-2xl text-center pb-6">Weather in {data.name}</p>
     <div className="flex justify-between text-center">
         <div>
@@ -30,8 +41,16 @@ const Weather = ({data}) => {
             <p className="text-xl">Humidity</p>
         </div>
         <div>
-            <p className="font-bold text-2l">{data.wind.speed.toFixed(0)}/MPH</p>
+            <p className="font-bold text-2l">{data.wind.speed.toFixed(0)}/Mph</p>
             <p className="text-xl">Winds</p>
+        </div>
+        <div>
+            <p className="font-bold text-2l">{data.main.temp_min.toFixed(0)} Min</p>
+            <p className="text-xl">Temp</p>
+        </div>
+        <div>
+            <p className="font-bold text-2l">{data.main.temp_max.toFixed(0)} Max</p>
+            <p className="text-xl">Temp</p>
         </div>
     </div>
 </div>          
