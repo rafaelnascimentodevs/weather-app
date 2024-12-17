@@ -33,6 +33,29 @@ export default function Home() {
     setCity('');
   };
 
+  const formatForecast = (secs, offset, data) => {
+    console.log(secs);
+
+  const hourly = data
+  .filter((f) => f.dt > secs )
+  .map((f) => ({
+    temp: f.main.temp,
+    title: formatLocaltime(f.dt, offset, "HH:mm a"),
+    icon: `http://openweathermap.org/img/wn/${f.weather[0].icon}.png`,
+    date: f.dt_txt,
+  }))
+  .slice(0, 5);
+
+  const daily = data.filter((f) => f.dt_txt.slice(-8) === "00:00:00").map((f) => ({
+    temp: f.main.temp,
+    title: formatLocaltime(f.dt, offset, "ccc"),
+    icon: `http://openweathermap.org/img/wn/${f.weather[0].icon}.png`,
+    date: f.dt_txt,
+  }))
+
+  return {hourly , daily};
+}
+
   if (loading) {
     return <Spinner />
   } else {  
@@ -44,7 +67,7 @@ export default function Home() {
             src='https://images3.alphacoders.com/134/1349491.jpeg' 
             layout='fill'
             className='object-cover'
-            alt='bg-netweather' // Adicione uma descrição apropriada aqui
+            alt='bg-netweather' // 
           />
 
       {/* Search Bar */}
@@ -64,6 +87,10 @@ export default function Home() {
       {/* Weather Info */}
       
       {weather.main && <Weather data={weather} />}
+      
+      {/* Forecast */}
+
+
     </div>  
 
     )

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import moment from 'moment';
+import moment, { now } from 'moment';
 
 
 const Weather = ({data}) => {
@@ -24,7 +24,7 @@ const Weather = ({data}) => {
            <div>
               </div>
                 <div className="text-center bg-black/50 relative p-5 rounded-md">
-                 <p className="text-2xl">{moment().hour()}:{moment().minutes()}:{moment().seconds()}</p>
+                 <p className="text-2xl">{moment().hour()} : {moment().minutes()}</p>
                  <p className="text-xl">{moment().format('MMMM Do YYYY')}</p>
            </div>
 
@@ -53,9 +53,8 @@ const Weather = ({data}) => {
             <p className="text-xl">Temp</p>
         </div>
     </div>
-</div>          
-
-        </div>
+    </div>          
+    </div>
     )
 }
 
